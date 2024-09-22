@@ -4,12 +4,17 @@
     <meta charset="UTF-8"  >
     <title th:text="${folderName}"></title>
 </head>
-<body>
+<body class="bg-dark">
+        <header >
+            <a href = "/"><button type="button" class="btn btn-outline-primary">Главная страница</button></a>
 
-        <div class="container " th:each = "vName:${listNameVideo}">
-            <div class="">
-                <video th:src="@{'video/'+${vName}}" width="300px" height="250" controls preload="none"></video>
-                <p th:text="${vName}"></p>
+        </header>
+        <div class="row mt-4 g-0">
+            <div class=" container col d-flex align-items-center justify-content-center" th:each = "vName:${listNameVideo}">
+                <div>
+                    <video th:src="@{'video/'+${vName}}" width="450px" height="300" controls preload="metadata"></video>
+                    <p class="text-white" th:text="${vName}"></p>
+                </div>
             </div>
         </div>
 

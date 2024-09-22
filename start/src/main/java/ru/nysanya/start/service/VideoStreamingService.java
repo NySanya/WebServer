@@ -12,12 +12,13 @@ import java.io.InputStream;
 public class VideoStreamingService {
     //fix
     private static final String FORMAT = "classpath:mp4/rikAndMorty/%s.mkv";
+    private static final String FORMATS = "classpath:mp4/%s.mkv";
 
     @Autowired
     private ResourceLoader resourceLoader;
 
-    public Mono<Resource> getVideo(String title) {
-        return Mono.fromSupplier(() -> this.resourceLoader.getResource( String.format(FORMAT, title)));
+    public Mono<Resource> getVideo(String title, String last) {
+        return Mono.fromSupplier(() -> this.resourceLoader.getResource( String.format(FORMATS,  last+"/"+title)));
     }
 
 //    public InputStream getPrev (String s){
